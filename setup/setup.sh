@@ -1,57 +1,107 @@
 #!/usr/bin/env bash
 set -e
 
-ask() {
-  # http://djm.me/ask
-  while true; do
+echo "Installing yaourt..."
+#echo "[archlinuxcn]" >> /etc/pacman.conf
+#echo "Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch" >> /etc/pacman.conf
+sudo pacman -Syuu yaourt \
+    archlinuxcn-keyring
 
-    if [ "${2:-}" = "Y" ]; then
-      prompt="Y/n"
-      default=Y
-    elif [ "${2:-}" = "N" ]; then
-      prompt="y/N"
-      default=N
-    else
-      prompt="y/n"
-      default=
-    fi
+echo "Installing base packages..."
+yaourt --noconfirm -S \
+  termite-git \
+  bash-completion
 
-    # Ask the question
-    read -p "$1 [$prompt] " REPLY
+echo "Installing Python dependencies..."
+yaourt --noconfirm -S \
+  python-basiciw \
+  python-netifaces \
+  python-yaml \
+  python-pillow \
+  python-urllib3 \
+  python2-suds
 
-    # Default?
-    if [ -z "$REPLY" ]; then
-       REPLY=$default
-    fi
+echo "Installing window manager dependencies..."
+yaourt --noconfirm -S \
+  xcb-util-keysyms \
+  xcb-util-wm \
+  xcb-util-cursor \
+  yajl \
+  startup-notification \
+  libev
 
-    # Check if the reply is valid
-    case "$REPLY" in
-      Y*|y*) return 0 ;;
-      N*|n*) return 1 ;;
-    esac
+echo "Installing tools..."
+yaourt --noconfirm -S \
+  i3lock \
+  i3blocks-gaps-git \
+  i3status-git \
+  gsimplecal \
+  feh \
+  acpi \
+  xdotool \
+  pulseaudio-ctl \
+  pavucontrol \
+  network-manager-applet \
+  networkmanager-openvpn \
+  imagemagick \
+  dunst \
+  python \
+  python-pip \
+  python2-pip \
+  compton-git \
+  ttf-font-awesome \
+  ohsnap \
+  ttf-hack \
+#  powerline-fonts-git \
+  thunar \
+  thunar-archive-plugin \
+  file-roller \
+  tumbler \
+  eog \
+  numix-themes \
+  numix-icon-theme-git \
+  tk \
+  aspell-en \
+  evince \
+  rofi \
+  libmtp \
+  gvfs-mtp \
+  vim-airline \
+  vim-fugitive \
+  vim-gruvbox-git \
+  vim-airline-gruvbox-git \
+  vim-youcompleteme-git \
+  vim-gitgutter-git \
+  xtitle-git \
+  openssh \
+  arandr \
+  xclip \
+  xedgewarp-git \
+  unclutter-xfixes-git \
+  thefuck \
+  slop \
+  maim \
+  neofetch-git \
+  w3m \
+  htop \
+  bluez \
+  bluez-utils \
+  pulseaudio-bluetooth \
+  blueman \
+  redshift \
+  google-chrome \
+  lm_sensors
 
-  done
-}
+echo "Installing some python stuff..."
+yaourt --noconfirm -S \
+  python-pillow \
+  python-urllib3
 
-dir=`pwd`
-if [ ! -e "${dir}/${0}" ]; then
-  echo "Script not called from within repository directory. Aborting."
-  exit 2
-fi
-dir="${dir}/.."
-
-#distro=`lsb_release -si`
-#if [ ! -f "dependencies-${distro}" ]; then
-#  echo "Could not find file with dependencies for distro ${distro}. Aborting."
-#  exit 2
-#fi
-
-ask "Install packages?" Y && bash ./dependencies-${distro}
-
-ask "Install python2 modules?" Y && {
-  sudo pip2 install pyyaml
-}
-
+echo "Installing some perl stuff..."
+yaourt --noconfirm -S \
+    perl-anyevent-i3 \
+    perl-json-xs 
+echo "Link some config"
 ask "Install symlink for .gitconfig?" Y && ln -sfn ${dir}/.gitconfig ${HOME}/.gitconfig
 ask "Install symlink for .bashrc?" Y && ln -sfn ${dir}/.bashrc ${HOME}/.bashrc
 ask "Install symlink for .bash_profile?" Y && ln -sfn ${dir}/.bash_profile ${HOME}/.bash_profile
