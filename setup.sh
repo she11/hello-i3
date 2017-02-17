@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-echo "Installing yaourt..."
-#echo "[archlinuxcn]" >> /etc/pacman.conf
-#echo "Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch" >> /etc/pacman.conf
-sudo pacman -Syuu yaourt \
-    archlinuxcn-keyring
-
 echo "Installing base packages..."
 yaourt --noconfirm -S \
   termite-git \
@@ -101,6 +95,7 @@ echo "Installing some perl stuff..."
 yaourt --noconfirm -S \
     perl-anyevent-i3 \
     perl-json-xs 
+
 echo "Link some config"
 ask "Install symlink for .gitconfig?" Y && ln -sfn ${dir}/.gitconfig ${HOME}/.gitconfig
 ask "Install symlink for .bashrc?" Y && ln -sfn ${dir}/.bashrc ${HOME}/.bashrc
