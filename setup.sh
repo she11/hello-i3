@@ -1,100 +1,41 @@
 #!/usr/bin/env bash
 set -e
 
-echo "Installing base packages..."
-yaourt --noconfirm -S \
-  termite-git \
-  bash-completion
+ask() {
+  # http://djm.me/ask
+  while true; do
 
-echo "Installing Python dependencies..."
-yaourt --noconfirm -S \
-  python-basiciw \
-  python-netifaces \
-  python-yaml \
-  python-pillow \
-  python-urllib3 \
-  python2-suds
+    if [ "${2:-}" = "Y" ]; then
+      prompt="Y/n"
+      default=Y
+    elif [ "${2:-}" = "N" ]; then
+      prompt="y/N"
+      default=N
+    else
+      prompt="y/n"
+      default=
+    fi
 
-echo "Installing window manager dependencies..."
-yaourt --noconfirm -S \
-  xcb-util-keysyms \
-  xcb-util-wm \
-  xcb-util-cursor \
-  yajl \
-  startup-notification \
-  libev
+    # Ask the question
+    read -p "$1 [$prompt] " REPLY
 
-echo "Installing tools..."
-yaourt --noconfirm -S \
-  i3lock \
-  i3blocks-gaps-git \
-  i3status-git \
-  gsimplecal \
-  feh \
-  acpi \
-  xdotool \
-  pulseaudio-ctl \
-  pavucontrol \
-  network-manager-applet \
-  networkmanager-openvpn \
-  imagemagick \
-  dunst \
-  python \
-  python-pip \
-  python2-pip \
-  compton-git \
-  ttf-font-awesome \
-  ohsnap \
-  ttf-hack \
-#  powerline-fonts-git \
-  thunar \
-  thunar-archive-plugin \
-  file-roller \
-  tumbler \
-  eog \
-  numix-themes \
-  numix-icon-theme-git \
-  tk \
-  aspell-en \
-  evince \
-  rofi \
-  libmtp \
-  gvfs-mtp \
-  vim-airline \
-  vim-fugitive \
-  vim-gruvbox-git \
-  vim-airline-gruvbox-git \
-  vim-youcompleteme-git \
-  vim-gitgutter-git \
-  xtitle-git \
-  openssh \
-  arandr \
-  xclip \
-  xedgewarp-git \
-  unclutter-xfixes-git \
-  thefuck \
-  slop \
-  maim \
-  neofetch-git \
-  w3m \
-  htop \
-  bluez \
-  bluez-utils \
-  pulseaudio-bluetooth \
-  blueman \
-  redshift \
-  google-chrome \
-  lm_sensors
+    # Default?
+    if [ -z "$REPLY" ]; then
+       REPLY=$default
+    fi
 
-echo "Installing some python stuff..."
-yaourt --noconfirm -S \
-  python-pillow \
-  python-urllib3
+    # Check if the reply is valid
+    case "$REPLY" in
+      Y*|y*) return 0 ;;
+      N*|n*) return 1 ;;
+    esac
 
-echo "Installing some perl stuff..."
-yaourt --noconfirm -S \
-    perl-anyevent-i3 \
-    perl-json-xs 
+  done
+}
+
+dir=$(pwd)
+
+ask "Install packages?" Y && bash ./dependencies.sh
 
 echo "Link some config"
 ask "Install symlink for .gitconfig?" Y && ln -sfn ${dir}/.gitconfig ${HOME}/.gitconfig
