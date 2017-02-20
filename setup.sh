@@ -54,5 +54,6 @@ ask "Install symlink for .i3/?" Y && ln -sfn ${dir}/.i3 ${HOME}/.i3
 ask "Install symlink for .vim/?" Y && ln -sfn ${dir}/.vim ${HOME}/.vim
 ask "Install symlink for .bash.d/?" Y && ln -sfn ${dir}/.bash.d ${HOME}/.bash.d
 ask "Install symlink for .config/?" Y && ln -sfn ${dir}/.config ${HOME}/.config
+ask "Install symlink for .fonts/?" Y && ln -sfn ${dir}/.fonts ${HOME}/.fonts
 
 ask "Install symlink for scripts/?" Y && ln -sfn ${dir}/scripts ${HOME}/scripts
