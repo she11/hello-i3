@@ -6,6 +6,13 @@ yaourt --noconfirm -S \
   termite-git \
   bash-completion
 
+echo "Installing i3wm"
+yaourt --noconfirm -S \
+  i3-gaps-git \
+  i3lock \
+  i3blocks-gaps-git \
+  i3status-git
+
 echo "Installing Python dependencies..."
 yaourt --noconfirm -S \
   python-basiciw \
@@ -26,10 +33,6 @@ yaourt --noconfirm -S \
 
 echo "Installing tools..."
 yaourt --noconfirm -S \
-  i3-gaps-git \
-  i3lock \
-  i3blocks-gaps-git \
-  i3status-git \
   gsimplecal \
   feh \
   acpi \

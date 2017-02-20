@@ -35,6 +35,8 @@ ask() {
 
 dir=$(pwd)
 
+ask "Install yaourt?" Y && sudo bash ./yaourt.sh
+
 ask "Install packages?" Y && bash ./dependencies.sh
 
 echo "Link some config"
