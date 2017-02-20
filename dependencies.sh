@@ -8,6 +8,8 @@ yaourt --noconfirm -S \
 
 echo "Installing i3wm"
 yaourt --noconfirm -S \
+  xorg-server \
+  xorg-xinit \
   i3-gaps-git \
   i3lock \
   i3blocks-gaps-git \
