@@ -46,6 +46,7 @@ ask "Install symlink for .bash_profile?" Y && ln -sfn ${dir}/.bash_profile ${HOM
 ask "Install symlink for .vimrc?" Y && ln -sfn ${dir}/.vimrc ${HOME}/.vimrc
 ask "Install symlink for .Xresources?" Y && ln -sfn ${dir}/.Xresources ${HOME}/.Xresources
 ask "Install symlink for .xinitrc?" Y && ln -sfn ${dir}/.xinitrc ${HOME}/.xinitrc
+ask "Install symlink for .xprofile" Y && ln -sfn ${dir}/.xprofile ${HOME}/.xprofile
 ask "Install symlink for .compton.conf?" Y && ln -sfn ${dir}/.compton.conf ${HOME}/.compton.conf
 ask "Install symlink for .gtkrc-2.0?" Y && ln -sfn ${dir}/.gtkrc-2.0 ${HOME}/.gtkrc-2.0
 ask "Install symlink for .npmrc?" Y && ln -sfn ${dir}/.npmrc ${HOME}/.npmrc

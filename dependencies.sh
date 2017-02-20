@@ -91,6 +91,15 @@ yaourt --noconfirm -S \
   google-chrome \
   lm_sensors
 
+echo "Installing input method..."
+yaourt --noconfirm -S \
+  fcitx-rime \
+  fcitx-configtool \
+  fcitx-gtk2 \
+  fcitx-gtk3 \
+  fcitx-qt4 \
+  fcitx-qt5
+
 echo "Installing some python stuff..."
 yaourt --noconfirm -S \
   python-pillow \
