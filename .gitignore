@@ -21,6 +21,13 @@
 !.config/i3blocks
 !.config/i3blocks/config
 
+!.config/fcitx
+!.config/fcitx/config
+!.config/fcitx/profile
+!.config/fcitx/conf
+!.config/fcitx/data
+!.config/fcitx/rime
+
 .weechat/*
 !.weechat/weechat.conf
 !.weechat/plugins.conf
