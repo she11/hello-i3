@@ -22,6 +22,7 @@ set $black       #282828
 set $darkblack   #1d2021
 set $transparent #00000000
 set $ablack      #282828f2
+set $fblack      #1a1a1a
 
 set $height 34
 
@@ -303,8 +304,8 @@ bar {
         background         $ablack
         separator          $transparent
 
-#                          BORDER       BACKGROUND   TEXT
-        focused_workspace  $transparent $transparent $darkwhite
+        #                  BORDER       BACKGROUND   TEXT
+        focused_workspace  $fblack      $fblack      $darkwhite
         inactive_workspace $ablack      $ablack      $white
         active_workspace   $transparent $transparent $white
         urgent_workspace   $darkred     $ablack      $white
