@@ -89,7 +89,8 @@ yaourt --noconfirm -S \
   blueman \
   redshift \
   google-chrome \
-  lm_sensors
+  lm_sensors \
+  alsa-utils
 
 echo "Installing input method..."
 yaourt --noconfirm -S \
