@@ -22,7 +22,7 @@ command=[[ -z "${BLOCK_BUTTON}" ]] || ( [[ "${BLOCK_BUTTON}" == "1" ]] && ((/usr
 interval=5
 signal=1
 markup=pango
-border=#cc241d
+border=#3369e8
 
 [brightness]
 label=    
@@ -35,7 +35,7 @@ border=#d79921
 label=   
 command=echo "$($HOME/scripts/temperature.sh 'Core 0') $($HOME/scripts/temperature.sh 'Core 1') "
 interval=5
-border=#b16286
+border=#d50f25
 
 [wireless]
 label=    
@@ -46,7 +46,7 @@ border=#98971a
 [battery]
 command=$HOME/scripts/battery.sh
 interval=persist
-border=#458588
+border=#009925
 
 [time]
 label=    
