@@ -10,10 +10,12 @@ echo "Installing i3wm"
 yaourt --noconfirm -S \
   xorg-server \
   xorg-xinit \
+  xorg-xbacklight \
   i3-gaps-git \
   i3lock \
   i3blocks-gaps-git \
-  i3status-git
+  i3status-git \
+  xf86-video-intel
 
 echo "Installing Python dependencies..."
 yaourt --noconfirm -S \
