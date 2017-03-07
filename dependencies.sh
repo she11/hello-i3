@@ -54,8 +54,7 @@ yaourt --noconfirm -S \
   ttf-font-awesome \
   ohsnap \
   ttf-hack \
-  thunar \
-  thunar-archive-plugin \
+  nautilus \
   file-roller \
   tumbler \
   eog \
