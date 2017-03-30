@@ -44,6 +44,8 @@ gaps outer $default_gaps_outer
 
 workspace $ws1 gaps inner 0
 workspace $ws1 gaps outer 0
+workspace $ws4 gaps inner 0
+workspace $ws4 gaps outer 0
 workspace $ws9 gaps inner 0
 workspace $ws9 gaps outer 0
 workspace $ws10 gaps inner 0
