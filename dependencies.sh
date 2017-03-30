@@ -91,7 +91,8 @@ yaourt --noconfirm -S \
   redshift \
   google-chrome \
   lm_sensors \
-  alsa-utils
+  alsa-utils \
+  gnome-mplayer
 
 echo "Installing input method..."
 yaourt --noconfirm -S \
