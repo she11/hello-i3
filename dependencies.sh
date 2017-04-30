@@ -59,7 +59,7 @@ yaourt --noconfirm -S \
   tumbler \
   eog \
   numix-themes \
-  numix-icon-theme-git \
+  la-capitaine-icon-theme-git \
   tk \
   aspell-en \
   evince \
